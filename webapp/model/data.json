@@ -1,0 +1,40 @@
+{
+	
+"Information":[
+	{
+		"firstName" : "Vishal",
+		"lastName" : "Karkera",
+		"age": "23",
+		"gender":"Male",
+		"empId":"72866",
+		"designation": "SAP UI5 Consultant",
+		"emailAdd" : "Vishal.karkera@capgemini.com",
+		"salary": "20000",
+		"module": "Technical"
+	},
+	
+		{
+		"firstName" : "Vijay",
+		"lastName" : "Gundeti",
+		"age": "23",
+		"gender":"Male",
+		"empId":"72866",
+		"designation": "SAP UI5 Consultant",
+		"emailAdd" : "Vijay.gundeti@capgemini.com",
+		"salary": "20000",
+		"module": "Technical"
+	}	,
+	
+		{
+		"firstName" : "Vaibhav",
+		"lastName" : "GB",
+		"age": "23",
+		"gender":"Male",
+		"empId":"72866",
+		"designation": "SAP UI5 Consultant",
+		"emailAdd" : "Vaibhav.gb@capgemini.com",
+		"salary": "20000",
+		"module": "Technical"
+	}	
+	]
+}

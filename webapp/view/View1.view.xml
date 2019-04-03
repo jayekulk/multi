@@ -1,0 +1,151 @@
+<mvc:View controllerName="test.bindingtest.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" 	xmlns:core="sap.ui.core">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Address" labelSpanXL="3" labelSpanL="3"
+						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+						columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="Name"/>
+							<Input id="name" value="{Info>firstName}"/>
+							<Label text="Street/No."/>
+							<Input value="{Street}"></Input>
+								<!--<layoutData>
+									<l:GridData span="XL1 L2 M2 S4"/>
+								</layoutData>-->
+							<Label text="ZIP Code/City"/>
+							<Input value="{ZIPCode}">
+							<!--	<layoutData>
+									<l:GridData span="XL1 L2 M2 S4"/>
+								</layoutData>-->
+							</Input>
+							<Label text="Country"/>
+							<Select id="country" selectedKey="{Country}">
+								<items>
+									<core:Item text="England" key="England"/>
+									<core:Item text="Germany" key="Germany"/>
+									<core:Item text="USA" key="USA"/>
+								</items>
+							</Select>
+						</f:content>
+					</f:SimpleForm>
+						<Table id="idProductsTable"
+		inset="false" itemPress="onRowClick" selectionChange="onRowClick"
+		items="{
+			path: 'Info>/Information',
+			sorter: {
+				path: 'Name'
+			}
+		}">
+		<headerToolbar>
+			<Toolbar>
+				<content>
+					<Title text="Products" level="H2"/>
+					<ToolbarSpacer />
+					<ComboBox id="idPopinLayout"
+						placeholder="Popin layout options"
+						change="onPopinLayoutChanged">
+						<items>
+							<core:Item  text="Block"
+								key="Block"/>
+							<core:Item  text="Grid Large"
+								key="GridLarge"/>
+							<core:Item  text="Grid Small"
+								key="GridSmall"/>
+						</items>
+					</ComboBox>
+					<MultiComboBox id="idSticky"
+						placeholder="Sticky options"
+						selectionFinish="onSelectionFinish"
+						width="15%">
+						<items>
+							<core:Item  text="Column headers"
+								key="ColumnHeaders"/>
+							<core:Item  text="Header Toolbar"
+								key="HeaderToolbar"/>
+							<core:Item  text="Info Toolbar"
+								key="InfoToolbar"/>
+						</items>
+					</MultiComboBox>
+					<ToggleButton id="toggleInfoToolbar"
+						text="Hide/Show InfoToolbar"
+						press="onToggleInfoToolbar" />
+				</content>
+			</Toolbar>
+		</headerToolbar>
+		<infoToolbar>
+			<Toolbar active="ture">
+				<Label text="Wide range of available products"/>
+			</Toolbar>
+		</infoToolbar>
+		<columns>
+			<Column
+				width="12em">
+				<Text text="Product" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Supplier" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Dimensions" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Weight" />
+			</Column>
+			<Column
+				hAlign="End">
+				<Text text="Price" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem  type="Active" press="onRowClick">
+				<cells>
+					<ObjectIdentifier
+						title="{Info>firstName}"
+						text="{Info>firstName}"/>
+					<Text
+						text="{Info>firstName}" />
+					<Text
+						text="{Width} x {Depth} x {Height} {DimUnit}" />
+					<ObjectNumber
+						number="{WeightMeasure}"
+						unit="{WeightUnit}"
+						state="{
+							parts: [
+								{path: 'WeightMeasure'},
+								{path: 'WeightUnit'}
+							],
+							formatter: 'sap.m.sample.Table.Formatter.weightState'
+						}" />
+					<ObjectNumber
+							number="{
+								parts:[{path:'Price'},{path:'CurrencyCode'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+							unit="{CurrencyCode}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button text="Submit"/>
+					</Toolbar>
+					</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
