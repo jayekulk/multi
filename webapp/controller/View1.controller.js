@@ -5,7 +5,7 @@ sap.ui.define([
 
 	return Controller.extend("test.bindingtest.controller.View1", {
 		onInit: function () {
-//help
+//help-tst
 		},
 		onRowClick:function(oEvent){
 			var oSelectedItem = oEvent.getSource();
